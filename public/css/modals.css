@@ -1,0 +1,120 @@
+.editTrainer,
+.deleteTrainer {
+    background-color: #009688;
+    color: #fff;
+    font-weight: 600;
+    border: 1px solid #009688;
+    padding: 10px 25px;
+}
+
+.btnDismiss {
+    background-color: #1b2e4b;
+    color: #bfc9d4;
+    font-weight: 700;
+    border: 1px solid #1b2e4b;
+    padding: 10px 25px;
+}
+
+/* Delete Modal*/
+#deleteModal .modal-content {
+    border: 0;
+    -webkit-box-shadow: 2px 5px 17px 0 rgba(31, 45, 61, 0.1);
+    box-shadow: 2px 5px 17px 0 rgba(31, 45, 61, 0.1);
+    padding: 30px;
+}
+#deleteModal .modal-content .modal-header {
+    border: none;
+    padding: 0;
+}
+#deleteModal .modal-content .modal-header .icon {
+    padding: 7px 9px;
+    background: rgba(231, 81, 90, 0.37);
+    text-align: center;
+    margin-right: 8px;
+    border-radius: 50%;
+}
+#deleteModal .modal-content .modal-header svg {
+    width: 20px;
+    color: #e7515a;
+    fill: rgba(231, 81, 90, 0.37);
+}
+#deleteModal .modal-content .modal-header .modal-title {
+    color: #3b3f5c;
+    font-size: 18px;
+    font-weight: 700;
+    align-self: center;
+}
+#deleteModal .modal-content .modal-body {
+    padding: 28px 0;
+}
+#deleteModal .modal-content .modal-body p {
+    color: #888ea8;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+#deleteModal .modal-content .modal-footer {
+    padding: 0;
+    border: none;
+}
+#deleteModal .modal-content .modal-footer [data-dismiss="modal"] {
+    background-color: #fff;
+    color: #e7515a;
+    font-weight: 700;
+    border: 1px solid #e8e8e8;
+    padding: 10px 25px;
+}
+#deleteModal .modal-content .modal-footer [data-remove="task"] {
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 25px;
+}
+
+.btn-add {
+    transform: none;
+    background: #009688;
+    border: none !important;
+    padding: 7px 9px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #191e3a !important;
+    width: 40px;
+    margin: 0 auto;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.mul-select {
+    width: 100%;
+    height: auto;
+    border: 1px solid #3b3f5c;
+    color: #009688;
+    font-size: 15px;
+    padding: 8px 10px;
+    letter-spacing: 1px;
+    height: calc(1.4em + 1.4rem + 2px);
+    padding: 0.75rem 1.25rem;
+    border-radius: 6px;
+    background: #1b2e4b;
+}
+
+.select2-container--material{
+    width: 100% !important;
+}
+
+/* .................................. */
+#sidebar * {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+li.sidebar svg{
+    color: #888ea8;
+    margin-right: 6px;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.8;
+}
+
