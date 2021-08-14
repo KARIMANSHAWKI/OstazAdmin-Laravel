@@ -43,7 +43,7 @@ Route::prefix('dashboard')->name("dashboard.")->group(function () {
         Route::get('report/programs', [ReportController::class, 'programs'])->name('report.programs');
 
         Route::get('/settings/notifications', [SettingController::class, 'notifications']);
-        Route::post('send-notification', [SettingController::class, 'send']);
+        // Route::post('send-notification', [SettingController::class, 'send']);
 
     });
 

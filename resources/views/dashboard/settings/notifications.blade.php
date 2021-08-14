@@ -33,7 +33,6 @@
                                         <form method="post" >
                                             <textarea style="margin-bottom:50px;" name="message" class="form-control" id="message"  rows="15"></textarea>
                                             <a href="javascript:void(0);" style="width: 80px; float: right; margin-top: -20px; margin-bottom:20px" class="btn-add">Send</a>
-                                            {{-- <button style="width: 80px; float: right; margin-top: -20px; margin-bottom:20px" class="btn-add" onclick="initFirebaseMessagingRegistration()">Send</button> --}}
                                         </form>
                                     </div>
                                   </div>

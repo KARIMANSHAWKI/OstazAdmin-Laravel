@@ -2,38 +2,26 @@
 
 namespace App\Services;
 
-class Notification{
+use Kutia\Larafirebase\Facades\Larafirebase;
+
+
+class NotificationService{
+
+    // private $deviceTokens =['{TOKEN_1}', '{TOKEN_2}'];
 
     public static  function sendNotification($device_token, $message)
     {
-        $SERVER_API_KEY = env('API_SERVER_KEY');
+        return Larafirebase::withBody($message)
+            ->withClickAction('admin/notifications')
+            ->withPriority('high')
+            ->sendNotification($device_token);
+    }
 
-        // payload data, it will vary according to requirement
-        $data = [
-            "to" => $device_token, // for single device id
-            "data" => $message
-        ];
-        $dataString = json_encode($data);
-
-        $headers = [
-            'Authorization: key=' . $SERVER_API_KEY,
-            'Content-Type: application/json',
-        ];
-
-        $ch = curl_init();
-
-        curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
-
-        $response = curl_exec($ch);
-
-        curl_close($ch);
-
-        return $response;
+    public function sendMessage()
+    {
+        return Larafirebase::withTitle('Test Title')
+            ->withBody('Test body')
+            ->sendMessage($this->deviceTokens);
     }
 
 }

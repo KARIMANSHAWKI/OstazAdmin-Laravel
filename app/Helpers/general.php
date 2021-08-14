@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Student;
+use App\Models\Trainer;
+
 function getGender($gender){
     if ($gender =='f') {
        return "Female";
@@ -15,5 +18,17 @@ function getStatus($status){
     } else {
         return "Active";
     }
+}
+
+function userType(){
+    $email =  auth('sanctum')->user()->email;
+
+    if(Student::where('email', $email)->first()){
+        return "student";
+    }else{
+        return "trainer";
+    }
+
+
 }
 
