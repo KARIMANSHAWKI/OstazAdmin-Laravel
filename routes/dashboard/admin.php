@@ -46,14 +46,16 @@ Route::prefix('dashboard')->name("dashboard.")->group(function () {
         // Route::post('send-notification', [SettingController::class, 'send']);
 
     });
-
-    Route::resource('login', LoginController::class);
-    Route::get('logout', [LogoutController::class, 'logout'])->name('logout');
 });
+
+    Route::get('/', [LoginController::class, 'index']);
+    Route::post('/login', [LoginController::class, 'store'])->name('admin.login');
+
+    Route::get('logout', [LogoutController::class, 'logout'])->name('dashboard.logout');
 
     Route::post('/password/email', [AdminForgotPasswordController::class, 'sendResetLinkEmail'])->name('admin.password.email');
     Route::get('/password/reset', [AdminForgotPasswordController::class, 'showLinkRequestForm'])->name('admin.password.request');
     Route::post('/password/reset', [AdminForgotPasswordController::class, 'reset']);
     Route::get('/password/reset/{token}', [AdminForgotPasswordController::class, 'showResetForm'])->name('admin.password.reset');
 
-// });
+
