@@ -35,3 +35,25 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css">
  <link rel="stylesheet" type="text/css" href="{{asset('css/chat.css')}}">
 
+<link rel="stylesheet" type="text/css" href="{{asset('css/multiselect.css')}}" />
+
+
+{{-- ########### Chat ########### --}}
+<link href="{{asset('dashboard/ltr/assets/css/apps/mailing-chat.css')}}" rel="stylesheet" type="text/css" />
+<style>
+       .pending {
+            position: absolute;
+            left: 13px;
+            top: 9px;
+            background: #b600ff;
+            margin: 0;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            line-height: 18px;
+            padding-left: 5px;
+            color: #ffffff;
+            font-size: 12px;
+        }
+
+</style>

@@ -14,6 +14,8 @@ use App\Http\Controllers\Dashboard\ReportController;
 use App\Http\Controllers\Dashboard\PermissionController;
 use App\Http\Controllers\Dashboard\SupervisorController;
 use App\Http\Controllers\Dashboard\SettingController;
+use App\Http\Controllers\Dashboard\MessageController;
+
 
 
 
@@ -22,34 +24,51 @@ use App\Http\Controllers\Dashboard\Auth\Password\AdminForgotPasswordController;
 use App\Http\Controllers\Dashboard\Auth\Password\AdminResetPasswordController;
 
 Route::prefix('dashboard')->name("dashboard.")->group(function () {
-    Route::group(['middleware' => 'auth:admin'], function () {
-        Route::resource('home', HomeController::class);
-        Route::resource('trainers', TrainerController::class);
-        Route::resource('students', StudentController::class);
-        Route::resource('countries', CountryController::class);
-        Route::resource('programs', ProgramController::class);
-        Route::resource('categories', CategoryController::class);
-        Route::resource('permissions', PermissionController::class);
-        Route::resource('supervisors', SupervisorController::class);
+    Route::group([
+        'middleware' => 'auth:admin',
+         'prefix' => LaravelLocalization::setLocale()
+        ], function () {
+            Route::resource('home', HomeController::class);
+            Route::resource('trainers', TrainerController::class);
+            Route::resource('students', StudentController::class);
+            Route::resource('countries', CountryController::class);
+            Route::resource('programs', ProgramController::class);
+            Route::resource('categories', CategoryController::class);
+            Route::resource('permissions', PermissionController::class);
+            Route::resource('supervisors', SupervisorController::class);
 
 
-        Route::get('/profile',[ ProfileController::class, 'index'])->name('profile.index');
-        Route::get('/profile/edit',[ ProfileController::class, 'edit'])->name('profile.edit');
-        Route::put('/profile/update',[ ProfileController::class, 'update'])->name('profile.update');
+            Route::get('/profile', [ ProfileController::class, 'index'])->name('profile.index');
+            Route::get('/profile/edit', [ ProfileController::class, 'edit'])->name('profile.edit');
+            Route::put('/profile/update', [ ProfileController::class, 'update'])->name('profile.update');
 
-        Route::get('report/trainers', [ReportController::class, 'trainers'])->name('report.trainers');
-        Route::get('report/students', [ReportController::class, 'students'])->name('report.students');
-        Route::get('report/countries', [ReportController::class, 'countries'])->name('report.countries');
-        Route::get('report/programs', [ReportController::class, 'programs'])->name('report.programs');
+            Route::get('report/trainers', [ReportController::class, 'trainers'])->name('report.trainers');
+            Route::get('report/students', [ReportController::class, 'students'])->name('report.students');
+            Route::get('report/countries', [ReportController::class, 'countries'])->name('report.countries');
+            Route::get('report/programs', [ReportController::class, 'programs'])->name('report.programs');
 
-        Route::get('/settings/notifications', [SettingController::class, 'notifications']);
-        // Route::post('send-notification', [SettingController::class, 'send']);
+            Route::get('/settings/notifications', [SettingController::class, 'notifications']);
+            // Route::post('send-notification', [SettingController::class, 'send']);
 
-    });
+            Route::get('/chat', [MessageController::class, 'index'])->name('chat.index');
+            Route::get('message/{id}', [MessageController::class, 'getMessage'])->name('chat.message');
+            Route::post('message', [MessageController::class, 'sendMessage']);
+
+
+        });
 });
 
-    Route::get('/', [LoginController::class, 'index']);
+
+
+
+        Route::group(['
+        prefix' => LaravelLocalization::setLocale()
+    ], function () {
+        Route::get('/', [LoginController::class, 'index'])->name('login');
+    });
+
     Route::post('/login', [LoginController::class, 'store'])->name('admin.login');
+
 
     Route::get('logout', [LogoutController::class, 'logout'])->name('dashboard.logout');
 
@@ -57,5 +76,3 @@ Route::prefix('dashboard')->name("dashboard.")->group(function () {
     Route::get('/password/reset', [AdminForgotPasswordController::class, 'showLinkRequestForm'])->name('admin.password.request');
     Route::post('/password/reset', [AdminForgotPasswordController::class, 'reset']);
     Route::get('/password/reset/{token}', [AdminForgotPasswordController::class, 'showResetForm'])->name('admin.password.reset');
-
-

@@ -26,7 +26,7 @@
                 <div class="form-container">
                     <div class="form-content">
 
-                        <h1 class="">Log In to <a href="index.html"><span class="brand-name">OSTAZ</span></a></h1>
+                        <h1 class="">Log In to <a href="javascript:void(0)"><span class="brand-name">OSTAZ</span></a></h1>
                         <form class="text-left"  method="POST" action="{{ route('admin.login') }}">
                             {{ csrf_field() }}
 

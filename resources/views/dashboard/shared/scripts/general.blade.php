@@ -74,10 +74,17 @@
 
 {{-- Profile update script --}}
 <script src="{{asset('js/dashboard/profile/update.js')}}"></script>
-<script src="{{asset('js/firebase.js')}}"></script>
-<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-messaging.js"></script>
 
+
+<script src="{{asset('js/multiselect.js')}}"></script>
+
+
+{{-- ##### Chat ###### --}}
+<script src="{{asset('dashboard/ltr/assets/js/apps/mailbox-chat.js')}}"></script>
+
+{{-- #### Pusher #### --}}
+<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+ 
 
 
 

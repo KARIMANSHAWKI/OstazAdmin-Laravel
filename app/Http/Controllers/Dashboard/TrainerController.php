@@ -47,6 +47,7 @@ class TrainerController extends Controller
     }
 
     public function update(UserRequest $request, $id){
+        return $request;
         $data = $request->except(['token']);
         if($data['gender'] == 'Male'){
             $data['gender'] = 'm';

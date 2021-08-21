@@ -14,12 +14,17 @@
             </li>
 
             <li class="nav-item dropdown language-dropdown">
-                <a href="javascript:void(0);" class="nav-link dropdown-toggle" id="language-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{-- <a href="javascript:void(0);" class="nav-link dropdown-toggle" id="language-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img src="{{asset('dashboard/ltr/assets/img/ca.png')}}" class="flag-width" alt="flag">
-                </a>
+                </a> --}}
                 <div class="dropdown-menu position-absolute" aria-labelledby="language-dropdown">
-                    <a class="dropdown-item d-flex" href="javascript:void(0);"><img src="{{asset('dashboard/ltr/assets/img/ca.png')}}" class="flag-width" alt="flag"> <span class="align-self-center">&nbsp;English</span></a>
-                    <a class="dropdown-item d-flex" href="javascript:void(0);"><img src="{{asset('dashboard/common/images/ar.png')}}" class="flag-width" alt="flag" style="border-radius: 50%"> <span class="align-self-center">&nbsp;Arabic</span></a>
+                    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                        <a rel="alternate" class="dropdown-item d-flex" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                            &nbsp;{{ $properties['native'] }}
+                        </a>
+                @endforeach
+                    {{-- <a class="dropdown-item d-flex" href="javascript:void(0);"><img src="{{asset('dashboard/ltr/assets/img/ca.png')}}" class="flag-width" alt="flag"> <span class="align-self-center">&nbsp;English</span></a>
+                    <a class="dropdown-item d-flex" href="javascript:void(0);"><img src="{{asset('dashboard/common/images/ar.png')}}" class="flag-width" alt="flag" style="border-radius: 50%"> <span class="align-self-center">&nbsp;Arabic</span></a> --}}
                 </div>
             </li>
 

@@ -17,7 +17,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+
 Route::middleware('auth:sanctum')->group(function(){
+  
     Route::post('user/subscribe-category', [SubscribeCategoryController::class, 'subscribeCategory']);
     Route::post('user/subscribe-program', [SubscribeProgramController::class, 'subscribeProgram']);
 

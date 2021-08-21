@@ -63,25 +63,51 @@
                                     </div>
                                 </div>
 
+
+
                                 <div class="col-md-12">
                                     <div class="d-flex mail-to mb-4">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3 flaticon-notes"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
                                         <div class="w-100">
-                                            <select class="pr-select categorySelect2 form-control" name="categories[]" multiple="true">
-                                                @foreach ($programs as $program)
-                                                        <option value="{{$program->id}}">{{$program->name}}</option>
-                                                @endforeach
-                                            </select>
-                                            <small id="categories1_error" class="form-text text-danger"></small>
+
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    {{-- Select programs --}}
+                                                      <div class="multiselect" id="categories" name="categories[]" multiple="multiple" data-target="multi-0">
+                                                          <div class="title noselect">
+                                                              <span class="text">Select Category</span>
+                                                              <span class="close-icon">&times;</span>
+                                                              <span class="expand-icon">&plus;</span>
+                                                              <input type="hidden" name="categories"/>
+                                                          </div>
+                                                          <div class="container1">
+                                                               @foreach ($programs as $program)
+                                                                  <option value="{{$program->id}}">{{$program->name}}</option>
+                                                          @endforeach
+                                                          </div>
+                                                      </div>
+                                                      <small id="programs1_error" class="form-text text-danger"></small>
+                                                </div>
 
 
-                                            <select class="pr-select programSelect2 form-control" name="programs[]" multiple="true">
-                                                @foreach ($programs as $program)
-                                                        <option value="{{$program->id}}">{{$program->name}}</option>
-                                                @endforeach
-                                            </select>
-                                            <small id="programs1_error" class="form-text text-danger"></small>
-
+                                                <div class="col-6">
+                                                    {{-- Select programs --}}
+                                                      <div class="multiselect"id="programs"   multiple="multiple" data-target="multi-1">
+                                                          <div class="title noselect">
+                                                              <span class="text">Select Program</span>
+                                                              <span class="close-icon">&times;</span>
+                                                              <span class="expand-icon">&plus;</span>
+                                                              <input type="hidden" name="programs[]"/>
+                                                          </div>
+                                                          <div class="container1">
+                                                               @foreach ($programs as $program)
+                                                                  <option value="{{$program->id}}">{{$program->name}}</option>
+                                                          @endforeach
+                                                          </div>
+                                                      </div>
+                                                      <small id="categories1_error" class="form-text text-danger"></small>
+                                                </div>
+                                            </div>
                                         </div>
                                      </div>
                                 </div>
